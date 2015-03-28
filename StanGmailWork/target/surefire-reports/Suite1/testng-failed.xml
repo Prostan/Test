@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="0" name="Failed suite [Suite1]">
+  <test name="exampletest2(failed)">
+    <classes>
+      <class name="com.gmail.tests.BaseTestCase">
+        <methods>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.gmail.tests.BaseTestCase -->
+      <class name="com.gmail.tests.LogingPageTest">
+        <methods>
+          <include name="testLogin"/>
+        </methods>
+      </class> <!-- com.gmail.tests.LogingPageTest -->
+    </classes>
+  </test> <!-- exampletest2(failed) -->
+</suite> <!-- Failed suite [Suite1] -->

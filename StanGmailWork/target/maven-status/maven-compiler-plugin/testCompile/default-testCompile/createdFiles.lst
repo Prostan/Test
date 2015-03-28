@@ -1,0 +1,6 @@
+com\gmail\tests\LogingPageTest.class
+data\UserData.class
+pageObjects\LoginPage.class
+pageObjects\BasePage.class
+com\gmail\tests\BaseTestCase.class
+pageObjects\HomePage.class
