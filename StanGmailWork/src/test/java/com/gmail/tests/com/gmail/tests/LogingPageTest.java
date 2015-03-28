@@ -24,7 +24,7 @@ public class LogingPageTest extends BaseTestCase {
         homePage = loginPage.loginAs(admin);
         logger.info("assert");
         Assert.assertTrue(homePage.isLoggedIn());
-        //loginPage = homePage.logOut();
-        //Assert.assertTrue(loginPage.isLoggedOut());
+        loginPage = homePage.logOut();
+        Assert.assertTrue(loginPage.isLoggedOut());
     }
 }

@@ -9,16 +9,16 @@ import java.util.NoSuchElementException;
 
 public abstract class BasePage extends LoadableComponent<BasePage>  {
 
-    protected WebDriver driver;
+    protected WebDriver driver; //Web driver declaration
 
     public BasePage(WebDriver driver){ //Constructor which returns driver instance
 
         this.driver = driver;
     }
 
-    public abstract void load();
+    public abstract void load(); //Abstract method which will force inherited classes use load
 
-    public boolean isElementPresent(WebElement element){
+    public boolean isElementPresent(WebElement element){ //Method to check if element present
         try{
             element.isDisplayed();
             return true;
@@ -27,13 +27,8 @@ public abstract class BasePage extends LoadableComponent<BasePage>  {
         }
     }
 
-    protected void type(WebElement webElement, String text){
+    protected void type(WebElement webElement, String text){ //Method to type text
         webElement.clear();
         webElement.sendKeys(text);
-    }
-
-    public HomePage navigateToWebApp(){
-        driver.navigate().to("http://www.thetestroom.com/webapp");
-        return PageFactory.initElements(driver, HomePage.class);
     }
 }

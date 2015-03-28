@@ -5,40 +5,46 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * Created by Stan on 3/11/2015.
  */
 public class HomePage extends BasePage {
 
-    @FindBy(linkText = "href=\"https://mail.google.com/mail/logout?hl=en\"")
+    @FindBy(id = "gb_71")
     private WebElement signOutButton;
 
     @FindBy(className = "T-I J-J5-Ji T-I-KE L3")
     private WebElement composeButton;
 
-    @FindBy(tagName = "title")
-    private WebElement title;
+    @FindBy(css = ".gb_ja")
+    private WebElement dropDown;
+
+    WebDriverWait wait = new WebDriverWait(driver, 10); // TODO find how to properly use it
 
     public HomePage(WebDriver driver){
         super(driver);
     }
 
     @Override
-    public void load(){
+    public void load(){ //Using load companent
     }
 
     @Override
-    protected void isLoaded(){
+    protected void isLoaded(){   //make sure we are in the right page
         Assert.assertTrue("Page is not loaded", driver.getTitle().startsWith("Inbox"));
     }
 
-
     public boolean isLoggedIn(){
+        wait.until(ExpectedConditions.titleContains("Inbox"));
         return driver.getTitle().startsWith("Inbox");
     }
 
     public LoginPage logOut(){
+        dropDown.click();
         signOutButton.click();
         return PageFactory.initElements(driver, LoginPage.class);
     }
