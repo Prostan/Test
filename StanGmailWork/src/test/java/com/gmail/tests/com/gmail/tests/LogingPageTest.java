@@ -24,6 +24,7 @@ public class LogingPageTest extends BaseTestCase {
         loginPage.get();
         logger.info("login ad admin leads to the home page");
         homePage = loginPage.loginAs(admin);
+        homePage.get();
         logger.info("assert");
 
         homePage.composeMail();
