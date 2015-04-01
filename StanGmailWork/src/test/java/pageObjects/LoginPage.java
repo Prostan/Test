@@ -27,8 +27,8 @@ public class LoginPage extends BasePage{
     }
 
     public HomePage loginAs(UserData admin){
-        type(userNameField, admin.name);
-        type(passwordField, admin.pass);
+        typeText(userNameField, admin.name);
+        typeText(passwordField, admin.pass);
         //todo uncheck save user
         //staySignedCheckBox.isSelected();
         signInButton.click();
@@ -42,7 +42,7 @@ public class LoginPage extends BasePage{
 
     @Override
     protected void isLoaded(){
-        Assert.assertTrue("Page is not loaded", driver.getTitle().startsWith("Gmail"));
+        Assert.assertTrue("Login page is not loaded", driver.getTitle().startsWith("Gmail"));
     }
 
     public boolean isLoggedOut(){

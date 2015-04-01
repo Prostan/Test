@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.LoadableComponent;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.NoSuchElementException;
 
@@ -16,7 +17,13 @@ public abstract class BasePage extends LoadableComponent<BasePage>  {
         this.driver = driver;
     }
 
+    // WebDriverWait wait = new WebDriverWait(driver, 10);
+
     public abstract void load(); //Abstract method which will force inherited classes use load
+
+    public void waitPageLoadTitleContains(String title){
+
+    }
 
     public boolean isElementPresent(WebElement element){ //Method to check if element present
         try{
@@ -27,7 +34,7 @@ public abstract class BasePage extends LoadableComponent<BasePage>  {
         }
     }
 
-    protected void type(WebElement webElement, String text){ //Method to type text
+    protected void typeText(WebElement webElement, String text){ //Method to typeText text
         webElement.clear();
         webElement.sendKeys(text);
     }

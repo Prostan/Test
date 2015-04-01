@@ -17,7 +17,7 @@ public class HomePage extends BasePage {
     @FindBy(id = "gb_71")
     private WebElement signOutButton;
 
-    @FindBy(className = "T-I J-J5-Ji T-I-KE L3")
+    @FindBy(css = "[gh=cm]")
     private WebElement composeButton;
 
     @FindBy(css = ".gb_ja")
@@ -35,7 +35,13 @@ public class HomePage extends BasePage {
 
     @Override
     protected void isLoaded(){   //make sure we are in the right page
-        Assert.assertTrue("Page is not loaded", driver.getTitle().startsWith("Inbox"));
+        Assert.assertTrue("Home page is not loaded", driver.getTitle().startsWith("Inbox"));
+    }
+
+    public void composeMail(){
+        wait.until(ExpectedConditions.titleContains("Inbox"));
+        composeButton.click();
+
     }
 
     public boolean isLoggedIn(){
@@ -50,4 +56,4 @@ public class HomePage extends BasePage {
     }
 }
 
-//Gauno//////////////////////////////////
+
