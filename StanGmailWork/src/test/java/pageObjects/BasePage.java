@@ -4,16 +4,18 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.LoadableComponent;
+import org.openqa.selenium.support.ui.SlowLoadableComponent;
+import org.openqa.selenium.support.ui.SystemClock;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.NoSuchElementException;
 
-public abstract class BasePage extends LoadableComponent<BasePage>  {
+public abstract class BasePage extends SlowLoadableComponent<BasePage>  {
 
     protected WebDriver driver; //Web driver declaration
 
     public BasePage(WebDriver driver){ //Constructor which returns driver instance
-
+        super(new SystemClock(), 10);
         this.driver = driver;
     }
 

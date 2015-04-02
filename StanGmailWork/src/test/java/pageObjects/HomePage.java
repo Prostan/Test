@@ -23,7 +23,7 @@ public class HomePage extends BasePage {
     @FindBy(css = ".gb_ja")
     private WebElement dropDown;
 
-    WebDriverWait wait = new WebDriverWait(driver, 10); // TODO find how to properly use it
+    // WebDriverWait wait = new WebDriverWait(driver, 10); // TODO find how to properly use it
 
     public HomePage(WebDriver driver){
         super(driver);
@@ -39,13 +39,13 @@ public class HomePage extends BasePage {
     }
 
     public void composeMail(){
-        wait.until(ExpectedConditions.titleContains("Inbox"));
+        // wait.until(ExpectedConditions.titleContains("Inbox"));
         composeButton.click();
 
     }
 
     public boolean isLoggedIn(){
-        wait.until(ExpectedConditions.titleContains("Inbox"));
+        // wait.until(ExpectedConditions.titleContains("Inbox"));
         return driver.getTitle().startsWith("Inbox");
     }
 
