@@ -5,9 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * Created by Stan on 3/11/2015.
@@ -23,7 +20,6 @@ public class HomePage extends BasePage {
     @FindBy(css = ".gb_ja")
     private WebElement dropDown;
 
-    // WebDriverWait wait = new WebDriverWait(driver, 10); // TODO find how to properly use it
 
     public HomePage(WebDriver driver){
         super(driver);
@@ -38,10 +34,9 @@ public class HomePage extends BasePage {
         Assert.assertTrue("Home page is not loaded", driver.getTitle().startsWith("Inbox"));
     }
 
-    public void composeMail(){
-        // wait.until(ExpectedConditions.titleContains("Inbox"));
+    public SendMessageBox openSendMessagBox(){
         composeButton.click();
-
+        return PageFactory.initElements(driver,SendMessageBox.class);
     }
 
     public boolean isLoggedIn(){

@@ -5,6 +5,8 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.HomePage;
 import pageObjects.LoginPage;
+import pageObjects.SendMessageBox;
+
 import java.lang.Exception;
 import java.util.logging.Logger;
 
@@ -12,25 +14,22 @@ public class LogingPageTest extends BaseTestCase {
 
     private LoginPage loginPage = PageFactory.initElements(getWebDriver(), LoginPage.class);
     private HomePage homePage;
+    private SendMessageBox sendMessageBox;
 
 
     private static final Logger logger = Logger.getLogger(LogingPageTest.class.getName());
 
-    @Test
-
+    @Test(enabled = true)
     public void testLogin() throws Exception {
 
-        logger.info("login page load");
-        loginPage.get();
-        logger.info("login ad admin leads to the home page");
-        homePage = loginPage.loginAs(admin);
-        homePage.get();
-        logger.info("assert");
+        loginPage.get();                            // Load login page
+        homePage = loginPage.loginAs(admin);        // Login as admin
+        homePage.get();                             // Check if page loaded properly
 
-        homePage.composeMail();
-        Assert.assertTrue(homePage.isLoggedIn());
+        Assert.assertTrue(homePage.isLoggedIn());   // Assert home page laded
 
-        loginPage = homePage.logOut();
-        Assert.assertTrue(loginPage.isLoggedOut());
+        loginPage = homePage.logOut();              // Logout
+        Assert.assertTrue(loginPage.isLoggedOut()); // Assert that we are logged out
     }
+
 }
