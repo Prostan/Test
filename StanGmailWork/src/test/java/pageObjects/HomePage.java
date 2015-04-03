@@ -20,6 +20,9 @@ public class HomePage extends BasePage {
     @FindBy(css = ".gb_ja")
     private WebElement dropDown;
 
+    @FindBy(css = "[title='Sent Mail']")
+    private WebElement sentMailLink;
+
 
     public HomePage(WebDriver driver){
         super(driver);
@@ -38,6 +41,13 @@ public class HomePage extends BasePage {
         composeButton.click();
         return PageFactory.initElements(driver,SendMessageBox.class);
     }
+
+    public SentMailPage openSentMailPage(){
+        sentMailLink.click();
+        return PageFactory.initElements(driver,SentMailPage.class);
+    }
+
+
 
     public boolean isLoggedIn(){
         // wait.until(ExpectedConditions.titleContains("Inbox"));
