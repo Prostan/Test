@@ -19,8 +19,8 @@ public class LogingPageTest extends BaseTestCase {
 
     private static final Logger logger = Logger.getLogger(LogingPageTest.class.getName());
 
-    @Test(enabled = true)
-    public void testLogin() throws Exception {
+    @Test(priority = 2)
+    public void testSuccessLogin() throws Exception {
 
         loginPage.get();                            // Load login page
         homePage = loginPage.loginAs(admin);        // Login as admin
@@ -31,5 +31,18 @@ public class LogingPageTest extends BaseTestCase {
         loginPage = homePage.logOut();              // Logout
         Assert.assertTrue(loginPage.isLoggedOut()); // Assert that we are logged out
     }
+
+    @Test(priority = 1)
+    public void testNotSuccessLogin() throws Exception {
+
+        loginPage.get();                            // Load login page
+        loginPage.badloginAs(badUser);              // Login as admin
+        loginPage.get();                             // Check if page loaded properly
+
+        Assert.assertEquals(loginPage.errorMessage.getText(), "The email or password you entered is incorrect. ?");
+    }
+
+
+
 
 }

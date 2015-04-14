@@ -21,11 +21,11 @@ public class HomePageTest extends BaseTestCase {
     @Test
     public void testSendMessage() throws Exception {
 
-        loginPage.get();                            // Load login page
-        homePage = loginPage.loginAs(admin);        // Login as admin
-        homePage.get();                             // Check if page loaded properly
+        loginPage.get();                                    // Load login page
+        homePage = loginPage.loginAs(admin);                // Login as admin
+        homePage.get();                                     // Check if page loaded properly
 
-        sendMessageBox = homePage.openSendMessagBox();   // Open sendMessage box
+        sendMessageBox = homePage.openSendMessagBox();      // Open sendMessage box
         sendMessageBox.get();
         sendMessageBox.sendMail();                          // Send message
 

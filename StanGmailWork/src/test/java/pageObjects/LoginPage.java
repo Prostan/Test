@@ -22,18 +22,30 @@ public class LoginPage extends BasePage{
     @FindBy(name = "PersistentCookie")
     public WebElement staySignedCheckBox;
 
+    @FindBy(css = "#errormsg_0_Passwd")
+    public WebElement errorMessage;
+
+
     public LoginPage(WebDriver driver){
         super(driver);
     }
 
-    public HomePage loginAs(UserData admin){
-        typeText(userNameField, admin.name);
-        typeText(passwordField, admin.pass);
+    public HomePage loginAs(UserData user){
+        typeText(userNameField, user.name);
+        typeText(passwordField, user.pass);
         //todo uncheck save user
         //staySignedCheckBox.isSelected();
         signInButton.click();
         return PageFactory.initElements(driver, HomePage.class);
     }
+
+    public void badloginAs(UserData badUser){
+        typeText(userNameField, badUser.name);
+        typeText(passwordField, badUser.pass);
+        signInButton.click();
+    }
+
+
 
     @Override
     public void load(){

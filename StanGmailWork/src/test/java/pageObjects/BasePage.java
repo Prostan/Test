@@ -2,11 +2,9 @@ package pageObjects;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.LoadableComponent;
 import org.openqa.selenium.support.ui.SlowLoadableComponent;
 import org.openqa.selenium.support.ui.SystemClock;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Reporter;
 
 import java.util.NoSuchElementException;
 
@@ -39,5 +37,15 @@ public abstract class BasePage extends SlowLoadableComponent<BasePage>  {
     protected void typeText(WebElement webElement, String text){ //Method to typeText text
         webElement.clear();
         webElement.sendKeys(text);
+    }
+
+    public void safeClick(WebElement webElement) { //Sefe click method
+        if(webElement != null) {
+            webElement.click();
+        } else {
+            // Using the TestNG API for logging
+            Reporter.log("Element: " + webElement + ", is not available on page - "
+                    + driver.getCurrentUrl()); //Todo return page instead URL
+        }
     }
 }

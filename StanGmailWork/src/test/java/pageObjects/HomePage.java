@@ -17,7 +17,7 @@ public class HomePage extends BasePage {
     @FindBy(css = "[gh=cm]")
     private WebElement composeButton;
 
-    @FindBy(css = ".gb_ja")
+    @FindBy(css = ".gb_L.gb_la.gb_o.gb_ha")
     private WebElement dropDown;
 
     @FindBy(css = "[title='Sent Mail']")
