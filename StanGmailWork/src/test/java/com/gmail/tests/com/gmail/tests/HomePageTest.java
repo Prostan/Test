@@ -18,7 +18,7 @@ public class HomePageTest extends BaseTestCase {
 
     private static final Logger logger = Logger.getLogger(LogingPageTest.class.getName());
 
-    @Test
+    @Test(enabled = false) //Todo enable test when create parralel tests
     public void testSendMessage() throws Exception {
 
         loginPage.get();                                    // Load login page

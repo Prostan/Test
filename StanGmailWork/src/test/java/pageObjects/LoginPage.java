@@ -2,11 +2,12 @@ package pageObjects;
 
 
 import data.UserData;
-import junit.framework.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
+
 
 public class LoginPage extends BasePage{
 
@@ -54,7 +55,7 @@ public class LoginPage extends BasePage{
 
     @Override
     protected void isLoaded(){
-        Assert.assertTrue("Login page is not loaded", driver.getTitle().startsWith("Gmail"));
+        Assert.assertTrue(driver.getTitle().startsWith("Gmail"), "Login page is not loaded");
     }
 
     public boolean isLoggedOut(){

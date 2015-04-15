@@ -1,11 +1,7 @@
 package pageObjects;
 
-/**
- * Created by Stan on 4/2/2015.
- */
-
-import junit.framework.Assert;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 
 
 public class SentMailPage extends BasePage{
@@ -22,6 +18,6 @@ public class SentMailPage extends BasePage{
 
     @Override
     protected void isLoaded() throws Error {
-        Assert.assertTrue("Send Mail page is not loaded", driver.getTitle().startsWith("Sent"));
+        Assert.assertTrue(driver.getTitle().startsWith("Sent"), "Send Mail page is not loaded");
     }
 }

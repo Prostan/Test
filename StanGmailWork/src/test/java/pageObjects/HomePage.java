@@ -1,10 +1,10 @@
 package pageObjects;
 
-import junit.framework.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 /**
  * Created by Stan on 3/11/2015.
@@ -31,7 +31,7 @@ public class HomePage extends BasePage {
 
     @Override
     protected void isLoaded(){   //make sure we are in the right page
-        Assert.assertTrue("Home page is not loaded", driver.getTitle().startsWith("Inbox"));
+        Assert.assertTrue(driver.getTitle().startsWith("Inbox"), "Home page is not loaded");
     }
 
     public SendMessageBox openSendMessagBox(){
