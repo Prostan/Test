@@ -6,9 +6,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Reporter;
 import org.testng.annotations.AfterTest;
 
-/**
- * Created by Stan on 3/24/2015.
- */
+
 public class BaseTestCase {
     protected static WebDriver driver;
 
@@ -18,7 +16,6 @@ public class BaseTestCase {
     protected WebDriver getWebDriver(){
         if(driver == null){
             driver = new FirefoxDriver();
-            Reporter.log("User is Logged out and Application is closed | ");
         }
         return driver;
     }

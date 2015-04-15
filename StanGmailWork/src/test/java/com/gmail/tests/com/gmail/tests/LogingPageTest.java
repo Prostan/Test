@@ -6,8 +6,8 @@ import org.testng.annotations.Test;
 import pageObjects.HomePage;
 import pageObjects.LoginPage;
 import pageObjects.SendMessageBox;
+import pageObjects.UserProfileBox;
 
-import java.lang.Exception;
 import java.util.logging.Logger;
 
 public class LogingPageTest extends BaseTestCase {
@@ -15,22 +15,10 @@ public class LogingPageTest extends BaseTestCase {
     private LoginPage loginPage = PageFactory.initElements(getWebDriver(), LoginPage.class);
     private HomePage homePage;
     private SendMessageBox sendMessageBox;
+    private UserProfileBox userProfileBox;
 
 
     private static final Logger logger = Logger.getLogger(LogingPageTest.class.getName());
-
-    @Test(priority = 2)
-    public void testSuccessLogin() throws Exception {
-
-        loginPage.get();                            // Load login page
-        homePage = loginPage.loginAs(admin);        // Login as admin
-        homePage.get();                             // Check if page loaded properly
-
-        Assert.assertTrue(homePage.isLoggedIn());   // Assert home page laded
-
-        loginPage = homePage.logOut();              // Logout
-        Assert.assertTrue(loginPage.isLoggedOut()); // Assert that we are logged out
-    }
 
     @Test(priority = 1)
     public void testNotSuccessLogin() throws Exception {
@@ -43,6 +31,32 @@ public class LogingPageTest extends BaseTestCase {
     }
 
 
+    @Test(priority = 2)
+    public void testSuccessLogin() throws Exception {
 
+        loginPage.get();                            // Load login page
+        homePage = loginPage.loginAs(admin);        // Login as admin
+        homePage.get();                             // Check if page loaded properly
+
+        Assert.assertTrue(homePage.isLoggedIn());   // Assert home page laded
+
+    }
+
+    @Test(priority = 3)
+    public void testUserProfile() throws Exception {
+
+        userProfileBox = homePage.openUserProfileBox();
+        userProfileBox.get();                           // Assert home page loaded
+
+        Assert.assertEquals(userProfileBox.getUserName(), "Stan Test");
+    }
+
+    @Test(priority = 4)
+    public void testLogout() throws Exception {
+
+        loginPage = userProfileBox.logOut();                // Logout
+        Assert.assertTrue(loginPage.isLoggedOut());         // Assert that we are logged out
+
+    }
 
 }

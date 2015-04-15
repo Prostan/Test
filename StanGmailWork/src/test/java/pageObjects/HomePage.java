@@ -11,14 +11,11 @@ import org.openqa.selenium.support.PageFactory;
  */
 public class HomePage extends BasePage {
 
-    @FindBy(id = "gb_71")
-    private WebElement signOutButton;
-
     @FindBy(css = "[gh=cm]")
     private WebElement composeButton;
 
     @FindBy(css = ".gb_L.gb_la.gb_o.gb_ha")
-    private WebElement dropDown;
+    private WebElement userProfileButton;
 
     @FindBy(css = "[title='Sent Mail']")
     private WebElement sentMailLink;
@@ -42,6 +39,12 @@ public class HomePage extends BasePage {
         return PageFactory.initElements(driver,SendMessageBox.class);
     }
 
+    public UserProfileBox openUserProfileBox(){
+        userProfileButton.click();
+        return PageFactory.initElements(driver,UserProfileBox.class);
+    }
+
+
     public SentMailPage openSentMailPage(){
         sentMailLink.click();
         return PageFactory.initElements(driver,SentMailPage.class);
@@ -54,11 +57,7 @@ public class HomePage extends BasePage {
         return driver.getTitle().startsWith("Inbox");
     }
 
-    public LoginPage logOut(){
-        dropDown.click();
-        signOutButton.click();
-        return PageFactory.initElements(driver, LoginPage.class);
-    }
+
 }
 
 
