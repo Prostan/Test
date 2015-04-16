@@ -35,9 +35,9 @@ public class SendMessageBox extends BasePage{
     }
 
     public void sendMail(){
-        typeText(resipientsBox, "stanwebtest@gmail.com");
-        typeText(subjectBox, "test");
-        typeText(messageBodyBox, "Hello Amigo");
+        enterText(resipientsBox, "stanwebtest@gmail.com");
+        enterText(subjectBox, "test");
+        enterText(messageBodyBox, "Hello Amigo");
         sendMessageButton.click();
     }
 

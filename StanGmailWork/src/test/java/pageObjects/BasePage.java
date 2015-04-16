@@ -1,5 +1,7 @@
 package pageObjects;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.SlowLoadableComponent;
@@ -9,6 +11,8 @@ import org.testng.Reporter;
 import java.util.NoSuchElementException;
 
 public abstract class BasePage extends SlowLoadableComponent<BasePage>  {
+
+    private static final Logger LOG = LogManager.getLogger(LoginPage.class);
 
     protected WebDriver driver; //Web driver declaration
 
@@ -34,14 +38,16 @@ public abstract class BasePage extends SlowLoadableComponent<BasePage>  {
         }
     }
 
-    protected void typeText(WebElement webElement, String text){ //Method to typeText text
+    protected void enterText(WebElement webElement, String text){ //Method to enterText text
         webElement.clear();
         webElement.sendKeys(text);
+        LOG.info("Text entered");
     }
 
     public void safeClick(WebElement webElement) { //Sefe click method
         if(webElement != null) {
             webElement.click();
+            LOG.info(" Safeclick");
         } else {
             // Using the TestNG API for logging
             Reporter.log("Element: " + webElement + ", is not available on page - "

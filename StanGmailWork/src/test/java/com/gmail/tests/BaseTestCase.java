@@ -1,6 +1,8 @@
 package com.gmail.tests;
 
 import data.UserData;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Reporter;
@@ -8,6 +10,8 @@ import org.testng.annotations.AfterTest;
 
 
 public class BaseTestCase {
+
+    private static final Logger LOG = LogManager.getLogger(BaseTestCase.class);
     protected static WebDriver driver;
 
     public UserData admin = new UserData("StanWebTest", "TestTest");
@@ -16,6 +20,7 @@ public class BaseTestCase {
     protected WebDriver getWebDriver(){
         if(driver == null){
             driver = new FirefoxDriver();
+            LOG.info(" ------------------------------------- New FireFox driver instantiated ----------------------------");
         }
         return driver;
     }
@@ -23,6 +28,6 @@ public class BaseTestCase {
     @AfterTest
     public void tearDown() throws Exception{
         driver.quit();
-        Reporter.log("User is Logged out and Application is closed | ");
+        LOG.info(" --------------------------- WebBrowser is closed!!!! ---------------------------------------");
     }
 }

@@ -2,11 +2,14 @@ package pageObjects;
 
 
 import data.UserData;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
+
 
 
 public class LoginPage extends BasePage{
@@ -26,24 +29,27 @@ public class LoginPage extends BasePage{
     @FindBy(css = "#errormsg_0_Passwd")
     public WebElement errorMessage;
 
+    private static final Logger LOG = LogManager.getLogger(LoginPage.class);
 
     public LoginPage(WebDriver driver){
         super(driver);
     }
 
     public HomePage loginAs(UserData user){
-        typeText(userNameField, user.name);
-        typeText(passwordField, user.pass);
+        enterText(userNameField, user.name);
+        enterText(passwordField, user.pass);
         //todo uncheck save user
         //staySignedCheckBox.isSelected();
-        signInButton.click();
+        safeClick(signInButton);
+        LOG.info("Logging as Admin");
         return PageFactory.initElements(driver, HomePage.class);
     }
 
     public void badloginAs(UserData badUser){
-        typeText(userNameField, badUser.name);
-        typeText(passwordField, badUser.pass);
-        signInButton.click();
+        enterText(userNameField, badUser.name);
+        enterText(passwordField, badUser.pass);
+        safeClick(signInButton);
+        LOG.info("Logging as BadUser");
     }
 
 
@@ -51,6 +57,7 @@ public class LoginPage extends BasePage{
     @Override
     public void load(){
         driver.get("http://gmail.com");
+        LOG.info("Login Page is loaded");
     }
 
     @Override

@@ -1,5 +1,7 @@
 package pageObjects;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -20,6 +22,7 @@ public class HomePage extends BasePage {
     @FindBy(css = "[title='Sent Mail']")
     private WebElement sentMailLink;
 
+    private static final Logger LOG = LogManager.getLogger(LoginPage.class);
 
     public HomePage(WebDriver driver){
         super(driver);
@@ -32,21 +35,25 @@ public class HomePage extends BasePage {
     @Override
     protected void isLoaded(){   //make sure we are in the right page
         Assert.assertTrue(driver.getTitle().startsWith("Inbox"), "Home page is not loaded");
+        LOG.info("Home Page is loaded");
     }
 
     public SendMessageBox openSendMessagBox(){
         composeButton.click();
+        LOG.info("Clicking on Compose button");
         return PageFactory.initElements(driver,SendMessageBox.class);
     }
 
     public UserProfileBox openUserProfileBox(){
         userProfileButton.click();
+        LOG.info("Clicking on UserProfile button");
         return PageFactory.initElements(driver,UserProfileBox.class);
     }
 
 
     public SentMailPage openSentMailPage(){
         sentMailLink.click();
+        LOG.info("Clicking on Sent mail link");
         return PageFactory.initElements(driver,SentMailPage.class);
     }
 

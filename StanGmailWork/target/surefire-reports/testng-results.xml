@@ -1,38 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testng-results skipped="0" failed="0" total="4" passed="4">
   <reporter-output>
-    <line>
-      <![CDATA[User is Logged out and Application is closed | ]]>
-    </line>
   </reporter-output>
-  <suite name="Suite1" duration-ms="8522" started-at="2015-04-15T06:46:25Z" finished-at="2015-04-15T06:46:33Z">
+  <suite name="Suite1" duration-ms="10789" started-at="2015-04-16T22:26:35Z" finished-at="2015-04-16T22:26:45Z">
     <groups>
     </groups>
-    <test name="exampletest2" duration-ms="8522" started-at="2015-04-15T06:46:25Z" finished-at="2015-04-15T06:46:33Z">
+    <test name="exampletest2" duration-ms="10789" started-at="2015-04-16T22:26:35Z" finished-at="2015-04-16T22:26:45Z">
+      <class name="com.gmail.tests.BaseTestCase">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.gmail.tests.BaseTestCase@607e25a]" name="tearDown" is-config="true" duration-ms="144" started-at="2015-04-16T15:26:45Z" finished-at="2015-04-16T15:26:45Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.gmail.tests.BaseTestCase -->
       <class name="com.gmail.tests.LogingPageTest">
-        <test-method status="PASS" signature="testNotSuccessLogin()[pri:0, instance:com.gmail.tests.LogingPageTest@5c7933ad]" name="testNotSuccessLogin" duration-ms="2058" started-at="2015-04-14T23:46:25Z" finished-at="2015-04-14T23:46:27Z">
+        <test-method status="PASS" signature="testNotSuccessLogin()[pri:0, instance:com.gmail.tests.LogingPageTest@32034752]" name="testNotSuccessLogin" duration-ms="2869" started-at="2015-04-16T15:26:35Z" finished-at="2015-04-16T15:26:37Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testNotSuccessLogin -->
-        <test-method status="PASS" signature="testSuccessLogin()[pri:0, instance:com.gmail.tests.LogingPageTest@5c7933ad]" name="testSuccessLogin" duration-ms="3021" started-at="2015-04-14T23:46:27Z" finished-at="2015-04-14T23:46:30Z">
+        <test-method status="PASS" signature="testSuccessLogin()[pri:0, instance:com.gmail.tests.LogingPageTest@32034752]" name="testSuccessLogin" duration-ms="3734" started-at="2015-04-16T15:26:37Z" finished-at="2015-04-16T15:26:41Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testSuccessLogin -->
-        <test-method status="PASS" signature="testUserProfile()[pri:0, instance:com.gmail.tests.LogingPageTest@5c7933ad]" name="testUserProfile" duration-ms="1798" started-at="2015-04-14T23:46:30Z" finished-at="2015-04-14T23:46:32Z">
+        <test-method status="PASS" signature="testUserProfile()[pri:0, instance:com.gmail.tests.LogingPageTest@32034752]" name="testUserProfile" duration-ms="2532" started-at="2015-04-16T15:26:41Z" finished-at="2015-04-16T15:26:44Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testUserProfile -->
-        <test-method status="PASS" signature="testLogout()[pri:0, instance:com.gmail.tests.LogingPageTest@5c7933ad]" name="testLogout" duration-ms="1362" started-at="2015-04-14T23:46:32Z" finished-at="2015-04-14T23:46:33Z">
+        <test-method status="PASS" signature="testLogout()[pri:0, instance:com.gmail.tests.LogingPageTest@32034752]" name="testLogout" duration-ms="1499" started-at="2015-04-16T15:26:44Z" finished-at="2015-04-16T15:26:45Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testLogout -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.gmail.tests.LogingPageTest@5c7933ad]" name="tearDown" is-config="true" duration-ms="273" started-at="2015-04-14T23:46:33Z" finished-at="2015-04-14T23:46:33Z">
-          <reporter-output>
-            <line>
-              <![CDATA[User is Logged out and Application is closed | ]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
       </class> <!-- com.gmail.tests.LogingPageTest -->
     </test> <!-- exampletest2 -->
   </suite> <!-- Suite1 -->
