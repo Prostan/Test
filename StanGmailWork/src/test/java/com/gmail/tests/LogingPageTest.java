@@ -3,23 +3,27 @@ package com.gmail.tests;
 import org.apache.logging.log4j.LogManager;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pageObjects.HomePage;
 import pageObjects.LoginPage;
 import pageObjects.SendMessageBox;
 import pageObjects.UserProfileBox;
 
-import java.util.logging.Logger;
+public class LogingPageTest extends TestBase {
 
-public class LogingPageTest extends BaseTestCase {
-
-    private LoginPage loginPage = PageFactory.initElements(getWebDriver(), LoginPage.class);
+    private LoginPage loginPage;
     private HomePage homePage;
-    private SendMessageBox sendMessageBox;
     private UserProfileBox userProfileBox;
 
 
     private static final org.apache.logging.log4j.Logger LOG = LogManager.getLogger(LoginPage.class);
+
+    @BeforeMethod
+    public void initPageObjects() {
+        loginPage = PageFactory.initElements(driver, LoginPage.class);
+    }
+
 
     @Test(priority = 1)
     public void testNotSuccessLogin() throws Exception {

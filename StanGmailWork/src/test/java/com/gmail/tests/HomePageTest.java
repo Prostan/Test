@@ -9,9 +9,9 @@ import pageObjects.SentMailPage;
 
 import java.util.logging.Logger;
 
-public class HomePageTest extends BaseTestCase {
+public class HomePageTest extends TestBase {
 
-    private LoginPage loginPage = PageFactory.initElements(getWebDriver(), LoginPage.class);
+    private LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
     private HomePage homePage;
     private SendMessageBox sendMessageBox;
     private SentMailPage sentMailPage;
