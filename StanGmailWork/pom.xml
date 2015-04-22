@@ -11,6 +11,8 @@
     <properties>
         <selenium.version>2.45.0</selenium.version>
         <log4.version>2.2</log4.version>
+        <webdriver.chrome>C:\Users\Stan\Desktop\ChromePath\chromedriver.exe</webdriver.chrome>
+
     </properties>
 
     <dependencies>
@@ -50,8 +52,12 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
+                    <version>2.7.1</version>
                     <inherited>true</inherited>
                     <configuration>
+                        <systemPropertyVariables>
+                            <webdriver.chrome.driver>${webdriver.chrome}</webdriver.chrome.driver>
+                        </systemPropertyVariables>
                         <suiteXmlFiles>
                             <sutieXmlFile>testng.xml</sutieXmlFile>
                         </suiteXmlFiles>

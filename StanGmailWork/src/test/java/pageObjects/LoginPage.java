@@ -56,13 +56,13 @@ public class LoginPage extends BasePage{
 
     @Override
     public void load(){
-        driver.get("https://accounts.google.com");
+        driver.get("http://gmail.com");
         LOG.info("Login Page is loaded");
     }
 
     @Override
     protected void isLoaded(){
-        Assert.assertTrue(driver.getTitle().startsWith("Sign in"), "Login page is not loaded");
+        Assert.assertTrue(driver.getTitle().startsWith("Gmail"), "Login page is not loaded");
     }
 
     public boolean isLoggedOut(){
